@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* This margin zero is because when browser load then it gives us margin by default  */
+        /* To remove this margin we use this css */
+        body{
+            margin:0;
+        }
+
+        /* It(pixel) will give us the absolute height */
+        .one{
+            border: 1px solid red;
+            background-color: lightcoral;
+            height: 100px;
+            width: 100px;
+        }
+
+        /* This will adjust the height according to viewing window size */
+        .two{
+            height: 30vh;
+            width: 30vw;
+            background-color: lightgreen;
+            border: 1px solid gray;
+        }
+
+        /* 1rem => p tag size */
+        /* Will scale according to the document*/
+        .three{
+            height: 10rem;
+            width: 10rem;
+            background-color: lightblue;
+            border: 1px solid green;
+        }
+
+        /* percentage always works according to its parent class */
+        .children{
+            height: 50%;
+            width: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- div are block whose height is height of its content by default -->
+    <!-- If height is provided in css then the divs height will be provided height -->
+    <div class="one"></div>
+    <div class="two">
+        <div class="children"></div>
+    </div>
+    <div class="three"></div>
+</body>
+</html>

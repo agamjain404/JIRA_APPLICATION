@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rebeccapurple;
+            margin: 0;
+        }
+        
+        /* Box without box-sizing: border-box property changes its height and width according to given padding */
+        .one{
+            color: white;
+            border: 1px solid red;
+            padding-left: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+            padding-right: 3rem;
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            /* margin-left: 2rem;
+            margin-top: 1rem;
+            margin-right: 1rem; */
+            margin: 0 auto;         /* Arrange div block in centre */
+        }
+        
+        /* Box with box-sizing: border-box property adjust padding in its given height and weight */
+        .two{
+            box-sizing: border-box;
+            color: white;
+            border: 1px solid red;
+            padding-left: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 2rem;
+            padding-right: 3rem;
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            /* margin-left: 2rem;
+            margin-top: 1rem;
+            margin-right: 1rem; */
+            margin: 0 auto;     /* Arrange div block in centre */
+        }
+    </style>
+</head>
+<body>
+    <div class="one">hello</div>
+    <div class="two">hello</div>
+</body>
+</html>

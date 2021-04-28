@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #15314b;
+}
+
+li{
+    list-style: none;
+}
+
+.input-container{
+    height: 15vh;
+    /* border: 2px solid red; */
+}
+
+.input-box{
+    display: block;
+    height: 80%;
+    width:60vw;
+    margin: 0 auto;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.main-container{
+    border: 2px solid green;
+    padding-top: 2rem;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    text-align: center;
+}
+
+.action{
+    font-size: 1.5rem;
+    background-color: green;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.task-list{
+    padding-left: 0;
+}
+
+.task{
+    height: 2rem;
+    width: 60%;
+    background-color: #2f679c;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+/* Media queries -> Works on basis of screen size */
+/* Dont learn syntax search on google on w3 orgs */
+@media only screen and (max-width: 800px) {
+    .input-box{
+        width: 40vw;
+    }
+}
