@@ -65,4 +65,19 @@ function createTicket(task, cColor){
                 <p class="ticket-desc">${task}</p>
             </div>`;
     mainContainer.appendChild(ticketContainer);
+    handleContainer(ticketContainer);
+}
+
+function handleContainer(ticketContainer){
+    // All Nodes also has document functions so
+    let colorStripElement = ticketContainer.querySelector(".ticket-color");
+    colorStripElement.addEventListener("click", function(){
+        let classes = colorStripElement.classList;
+        let initColor = classes[1];
+        let idx = colors.indexOf(initColor);
+        let newidx =(idx+1)%4;
+        let newColor = colors[newidx];
+        colorStripElement.classList.remove(initColor);
+        colorStripElement.classList.add(newColor);
+    })
 }
