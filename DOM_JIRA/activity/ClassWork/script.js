@@ -61,9 +61,11 @@ descBox.addEventListener("keydown", function (e) {
 function createTicket(task, cColor){
     let ticketContainer = document.createElement("div");
     ticketContainer.setAttribute("class", "ticket-container");
+    // Added uid from index.html which will give always unique id
+    let id = uid();
     ticketContainer.innerHTML= ` <div class="ticket-color ${cColor}"></div>
             <div class="ticket_sub-container">
-                <h3 class="ticket-id">#SampleId</h3>
+                <h3 class="ticket-id">${id}</h3>
                 <p class="ticket-desc">${task}</p>
             </div>`;
     mainContainer.appendChild(ticketContainer);
