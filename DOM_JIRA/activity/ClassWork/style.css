@@ -71,6 +71,11 @@ body{
 .fas{
     font-size:x-large;
 }
+
+.action-container__icons:hover{
+    background-color: rgb(100, 71, 26);
+}
+
 /* main container css**************************** */
 .main-container{
     border:5px solid green;
@@ -78,6 +83,7 @@ body{
     min-height: 88vh;
     background-color: rgb(240,239,239);
     padding: 2rem;
+    display: flex;
     /* Commnet below three lines(display, justify-content, align-items) If want to centre modal according to calc */
     /* display: flex;
     justify-content: space-evenly;
