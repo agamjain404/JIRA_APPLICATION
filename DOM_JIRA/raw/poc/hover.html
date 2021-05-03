@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- In styles active should always come beside the hover otherwise functionality will not work -->
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: rebeccapurple;
+        }
+        /* There is no link and active functionality for block level elements */
+        /* This is order for block level elements */
+        /* First hover */
+        /* Second active */
+        /* This is hover functionality */
+        .box:hover{
+            background-color: lightgreen;
+        }
+        /* Onclick it will be active */
+        .box:active{
+            background-color: lightcoral;
+        }
+
+        a:link{
+            background-color: red;
+        }
+
+        a:visited{
+            color: white;
+        }
+
+        a:hover{
+            background-color: green;
+        }
+        a:active{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <a href="https://www.google.com">Google</a>
+</body>
+</html>
