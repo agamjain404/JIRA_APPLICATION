@@ -78,13 +78,15 @@ body{
 
 /* main container css**************************** */
 .main-container{
-    border:5px solid green;
+    /* border:5px solid green; */
 /*  task add  */
     min-height: 88vh;
     background-color: rgb(240,239,239);
     padding: 2rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2vw;
     /* Commnet below three lines(display, justify-content, align-items) If want to centre modal according to calc */
     /* display: flex;
     justify-content: space-evenly;
@@ -141,7 +143,7 @@ body{
 
 .ticket-container{
     height: 10rem;    
-    width:15rem;
+    width:14rem;
     background-color:white;
     
 }
@@ -161,4 +163,25 @@ body{
     height: 70%;  
     word-break: break-all;
     overflow: auto;
+}
+
+@media only screen and (max-width: 500px){
+    .toolbar{
+        gap: 3rem;
+    }
+    .filter-container{
+         height: 70%;
+         width: 42%;
+    }
+    .action-container{
+        height: 70%;
+        width: 20%;
+    }
+
+    .modal_container{
+        top: 25vh;
+        height: 15rem;
+        width: 20rem;
+        left: calc((100vw - 20rem)/2);
+    }
 }
