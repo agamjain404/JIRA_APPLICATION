@@ -1,3 +1,6 @@
+// It will give error in JS if we use a variable without declaring it.
+'use strict';
+
 // Taking elements of html page by querySelector
 let filterOptions = document.querySelectorAll(".filter-colors__container");
 let modalFilters = document.querySelectorAll(".modal_filter");
@@ -10,14 +13,15 @@ let colors = ["lightpink", "lightblue", "lightgreen", "black"];
 let flag = false;
 let deleteState = false;
 let cColor = colors[colors.length - 1];
+let taskArr = [];
 
-// Function for setting background color on click
-for (let i = 0; i < filterOptions.length; i++) {
-    filterOptions[i].addEventListener("click", function () {
-        let arr = filterOptions[i].children;
-        let chclassesArr = arr[0].classList;
-        mainContainer.style.backgroundColor = chclassesArr[0];
-    });
+// Getting items from localStorage
+if(localStorage.getItem("allTasks")){
+    taskArr = JSON.parse(localStorage.getItem("allTasks"));
+    for(let i=0; i<taskArr.length; i++){
+        let {task, color, id} = taskArr[i];
+        createTicket(task, color, id);
+    }
 }
 
 
@@ -58,17 +62,27 @@ descBox.addEventListener("keydown", function (e) {
 
 
 // Function which creates ticket and attach its colr and delete functionality to it
-function createTicket(task, cColor){
+function createTicket(task, cColor, myid){
     let ticketContainer = document.createElement("div");
     ticketContainer.setAttribute("class", "ticket-container");
     // Added uid from index.html which will give always unique id
-    let id = uid();
+    // If myid is given then myid will be taken otherwise it will not be taken
+    let id = myid || uid();
     ticketContainer.innerHTML= ` <div class="ticket-color ${cColor}"></div>
             <div class="ticket_sub-container">
                 <h3 class="ticket-id">${id}</h3>
                 <p class="ticket-desc">${task}</p>
             </div>`;
     mainContainer.appendChild(ticketContainer);
+    // If myid is null then only ticket contents should be pushed into localStorage
+    if(!myid){
+        taskArr.push({
+            color:cColor,
+            id:id,
+            task:task
+        });
+        localStorage.setItem("allTasks",JSON.stringify(taskArr));
+    }
     handleticketColorContainer(ticketContainer);
     handleticketDeleteContainer(ticketContainer);
 }
@@ -85,6 +99,7 @@ function handleticketColorContainer(ticketContainer){
         let newColor = colors[newidx];
         colorStripElement.classList.remove(initColor);
         colorStripElement.classList.add(newColor);
+        changeColorInStore(colorStripElement, newColor);
     })
 }
 
@@ -102,7 +117,28 @@ removeBtn.addEventListener("click", function () {
 function handleticketDeleteContainer(ticketContainer){
     ticketContainer.addEventListener("click", function(){
         if(deleteState == true){
+            let element = ticketContainer.querySelector(".ticket-id");
+            let toBeDeleted = element.innerText;
+            let idx = taskArr.findIndex(function(ticket) {
+                return ticket.id == toBeDeleted;
+            })
+
+            console.log(idx);
+            taskArr.splice(idx, 1);
+            localStorage.setItem("allTasks", JSON.stringify(taskArr));
             ticketContainer.remove();
         }
     })
+}
+
+function changeColorInStore(colorStripElement, newColor){
+    let ticketSubContainerElem = colorStripElement.parentNode.children[1];
+    let idElement = ticketSubContainerElem.children[0];
+    let id = idElement.innerText;
+    let idx = taskArr.findIndex(function(ticket) {
+        return ticket.id == id;
+    })
+
+    taskArr[idx].color = newColor;
+    localStorage.setItem("allTasks", JSON.stringify(taskArr));
 }
