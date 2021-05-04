@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: rebeccapurple;
+            height: 200px;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- If contenteditable is true here then you can edit the content present inside div -->
+    <div class="box" contenteditable="true">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis expedita, pariatur beatae quis molestias quos
+        repellendus recusandae voluptas eligendi ullam distinctio, id nesciunt suscipit ex? Cum quas laudantium sed
+        enim.
+    </div>
+    <!-- If contenteditable is false here then you cannot edit the content -->
+    <div class="box" contenteditable="false">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis expedita, pariatur beatae quis molestias quos
+        repellendus recusandae voluptas eligendi ullam distinctio, id nesciunt suscipit ex? Cum quas laudantium sed
+        enim.
+    </div>
+    <!-- This input is not readonly we can edit it or write text in it -->
+    <input type="text">
+    <!-- This input is readonly and we cannot edit or write inside this Then only possible way to write inside ths is to give value. -->
+    <input type="text" readonly value="I am read only.">
+</body>
+
+</html>
